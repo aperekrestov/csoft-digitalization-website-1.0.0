@@ -1,0 +1,98 @@
+.popup {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	// position: fixed;
+	position: absolute;
+	background: url(../graphics/bg-3.svg) center / cover no-repeat;
+	background-color: $color_1;
+	min-height: $fullscreen_min_height; // ! --------
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	padding-bottom: 10%;
+}
+.email-popup {
+	z-index: 101;
+}
+.call-popup {
+	z-index: 102;
+}
+
+.feedback-form {
+	position: relative;
+	width: 100%;
+	max-width: 1024px;
+	margin: 0px auto;
+	// background-color: $color_2;
+
+	h2 {
+		text-align: center;
+	}
+	&__info {
+		width: 100%;
+		color: $color_2;
+		text-align: center;
+		user-select: none;
+		pointer-events: none;
+		opacity: 0;
+	}
+	&__two-block-textarea {
+		display: inline-block;
+		margin-top: 20px;
+		resize: none;
+		font-size: 23px;
+		width: calc(50% - 10px);
+		height: 50px;
+		padding: 10px 0px 0px 15px;
+		overflow: hidden;
+	}
+	&__textarea-mail {
+		float: right;
+		overflow: hidden;
+	}
+	&__textarea-message {
+		resize: vertical;
+		margin-top: 20px;
+		font-size: 23px;
+		width: 100%;
+		height: 50px;
+		padding: 10px 0px 0px 15px;
+	}
+	&__textarea-code {
+		display: inline-block;
+		resize: none;
+		margin-top: 20px;
+		font-size: 23px;
+		width: 25%;
+		min-width: 100px;
+		height: 50px;
+		padding: 10px 0px 0px 15px;
+		background-color: rgba($color: $color_5, $alpha: 0);
+		border: 1px solid $color_4;
+		color: $color_4;
+		overflow: hidden;
+	}
+	&__code {
+		display: inline-block;
+		width: 165px;
+		height: 50px;
+		margin-left: 20px;
+		background-image: url(../graphics/feedback-code.svg);
+		background-size: cover;
+	}
+	.button-style-1 {
+		margin-top: 28px;
+		float: right;
+		p {
+			margin-top: 0px;
+		}
+	}
+	.button-style-3 {
+		float: right;
+	}
+	.popup__send {
+		margin-left: 20px;
+	}
+}

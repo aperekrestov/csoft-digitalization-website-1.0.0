@@ -1,0 +1,149 @@
+@media (max-width: 1024px) {
+	.button-style-2 {
+		p {
+			padding: 10px 30px 10px 30px;
+		}
+		span {
+			top: 25px;
+		}
+	}
+	.menu {
+		&__list > li {
+			margin: 0px 20px 0px 0px;
+		}
+	}
+	.full-screen {
+		&__body {
+			flex-direction: column;
+			height: 100%;
+			justify-content: center;
+		}
+		&__block-infographics {
+			display: none;
+		}
+	}
+	.two-block-content {
+		width: 100%;
+		min-width: 220px;
+	}
+	.infographic-item {
+		min-width: 340px;
+		margin: 30px 0px 30px 0px;
+	}
+	.content {
+		padding-bottom: 120px;
+		.two-block-content,
+		.one-block-content {
+			margin-top: 62px;
+		}
+		&__banner {
+			display: none;
+		}
+		&__cg-progress {
+			height: 384px;
+		}
+	}
+	.footer-big-block {
+		padding: 60px 0px 90px 0px;
+		.icon {
+			width: 28px;
+			height: 28px;
+			// right: 35px;
+			top: 8px;
+		}
+		&__back {
+			margin-bottom: 32px;
+			h2 {
+				font-size: 42px;
+				padding-left: 40px;
+				margin-bottom: 10px;
+			}
+			.icon {
+				left: 5px;
+			}
+			span {
+				width: 44px;
+				height: 3px;
+			}
+		}
+		&__next {
+			margin-bottom: 32px;
+			h2 {
+				font-size: 42px;
+				padding-right: 40px;
+				margin-bottom: 10px;
+			}
+			.icon {
+				right: 5px;
+			}
+			span {
+				width: 44px;
+				height: 3px;
+				right: 38px;
+			}
+		}
+	}
+	.search-container {
+		h2 {
+			font-size: 42px;
+		}
+		&__search-block {
+			height: 36px;
+			border-radius: 18px;
+			padding: 0px 10px 0px 25px;
+		}
+		&__search-block-text {
+			// margin-top: 14px;
+			font-size: 16px;
+			height: 36px;
+			padding-top: 8px;
+		}
+		&__search-block-icon {
+			width: 30px;
+			height: 30px;
+		}
+	}
+	.feedback-form {
+		h2 {
+			font-size: 42px;
+		}
+		p {
+			margin-top: 0;
+		}
+		&__two-block-textarea {
+			margin-top: 14px;
+			font-size: 16px;
+			width: calc(50% - 7px);
+			height: 36px;
+			padding: 8px 0px 0px 15px;
+		}
+		&__textarea-message {
+			margin-top: 14px;
+			font-size: 16px;
+			height: 36px;
+			padding: 8px 0px 0px 15px;
+		}
+		&__textarea-code {
+			margin-top: 14px;
+			font-size: 16px;
+			height: 36px;
+			padding: 8px 0px 0px 15px;
+		}
+		&__code {
+			width: 118px;
+			height: 36px;
+			margin-left: 20px;
+		}
+		.button-style-1 {
+			margin-top: 16px;
+		}
+		.button-style-3 {
+			height: 32px;
+			margin-top: 16px;
+			h4 {
+				font-size: 16px;
+				margin-top: 6px;
+			}
+		}
+	}
+}

@@ -1,0 +1,121 @@
+@media only screen and (max-width: 767px) {
+	// используем значение 767 в js // ! адаптируем под мобильные девайсы
+	h1 {
+		font-size: 26px;
+		span {
+			width: 44px;
+			height: 3px;
+			margin-top: 29px;
+		}
+	}
+	h3 {
+		font-size: 16px;
+	}
+	h4 {
+		font-size: 14px;
+	}
+	p {
+		font-size: 14px;
+	}
+	.button-style-1 {
+		span {
+			margin-top: 11px;
+		}
+	}
+	.button-style-2 {
+		span {
+			top: 22px;
+		}
+	}
+	.button-expand {
+		h4 {
+			padding-top: 5px;
+		}
+	}
+	.menu {
+		height: 50px;
+		&__logo {
+			width: 58.57px; // ? 82
+			height: 40px; // ? 56
+		}
+		&__container-btn {
+			justify-content: flex-end;
+		}
+		&__menu-btn {
+			display: block;
+		}
+		&__mail-btn {
+			margin: 0px -15px 0px 10px;
+		}
+		&__mail-oval {
+			display: none;
+		}
+		&__home-btn {
+			display: none;
+		}
+
+		&__list {
+			margin-right: 0px;
+			// ! этот блок контролируется из JS методом onResize
+			// display: none; position: fixed; width: 320px; right: calc(50% - 160px); top: 30%; flex-direction: column; text-align: center; background-color: $color_2;
+		}
+		&__list > li {
+			margin: 0px 0px 30px 0px;
+		}
+		.sub-menu__list {
+			display: block;
+			position: relative;
+			padding: 0px 0px 0px 0px;
+		}
+		.sub-menu__list > li {
+			background-color: transparent;
+			padding: 0px 0px 0px 0px;
+			margin-top: 20px;
+		}
+	}
+	.width-limiter {
+		max-width: calc(100% - 40px);
+	}
+	.full-screen {
+		&__error-title {
+			font-size: 300px;
+		}
+	}
+	.footer-big-block {
+		&__joystick {
+			position: relative;
+			margin-bottom: 40px;
+		}
+	}
+	.footer-line__container {
+		height: 40px;
+	}
+	.search-container {
+		&__search-block {
+			width: 100%;
+		}
+	}
+	.feedback-form {
+		&__two-block-textarea {
+			width: 100%;
+		}
+		&__textarea-code {
+			width: calc(50% - 10px);
+		}
+		&__code {
+			margin-left: calc(25% - 59px);
+		}
+		.button-style-1 {
+			float: none;
+			margin-left: calc(50% - 110px);
+			margin-top: 40px;
+		}
+		.popup__cancel {
+			float: left;
+			width: calc(50% - 10px);
+		}
+		.popup__send {
+			width: calc(50% - 10px);
+		}
+	}
+}

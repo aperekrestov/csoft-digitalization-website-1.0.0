@@ -1,0 +1,17 @@
+@media only screen and (min-width: 1920px) {
+	//todo изменить на болешее значение (добавить отступ контента)
+	.menu {
+		padding: 0px 50px;
+	}
+	.full-screen__block-infographics {
+		.infographic-item {
+			min-width: 440px;
+		}
+	}
+	.width-limiter {
+		max-width: 1920px;
+	}
+	.footer-line__container {
+		padding: 0px 50px;
+	}
+}

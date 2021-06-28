@@ -1,0 +1,464 @@
+@import "nullstyle.scss";
+// @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:wght@400;700&display=swap");
+
+@font-face {
+	font-family: "Ubuntu-Regular";
+	src: url(../graphics/fonts/Ubuntu-Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "UbuntuCondensed-Regular";
+	src: url(../graphics/fonts/UbuntuCondensed-Regular.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
+
+$color_1: #0c121c;
+$color_2: #da4e4d;
+$color_3: #f5fafc;
+$color_4: #c7ddeb;
+$color_5: #ffffff;
+$color_6: #c7c8cc;
+$color_7: #d5f1bd;
+
+$fullscreen_min_height: 500px; // ! значение используется в JS
+
+body {
+	overflow-y: auto;
+	overflow-x: hidden;
+	color: $color_3;
+	font-family: "UbuntuCondensed-Regular", sans-serif;
+	background-color: $color_1;
+}
+h1 {
+	font-size: 37px;
+	line-height: 130%;
+	span {
+		position: absolute;
+		width: 66px;
+		height: 6px;
+		margin-top: 40px;
+		background-color: $color_2;
+	}
+}
+h2 {
+	// ? используется только в инфографике главной страницы
+	font-size: 60px;
+}
+h3 {
+	font-size: 20px;
+}
+h4 {
+	font-size: 20px;
+}
+p {
+	font-family: "Ubuntu-Regular", sans-serif;
+	font-size: 18px;
+	line-height: 180%;
+	margin: 18px 0px 0px 0px;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.width-limiter {
+	max-width: calc(100% - 240px);
+}
+.tint {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: $color_1;
+	opacity: 0.7;
+	// mix-blend-mode: hard-light;
+	// mix-blend-mode: multiply;
+}
+.numbering {
+	margin-bottom: 15px;
+}
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 1024px;
+	margin: 0px auto;
+	text-align: center;
+	// background-color: $color_2;
+	&__search-block {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		// ? так же как и в feedback-form
+		height: 60px;
+		border-radius: 30px;
+		margin-top: 30px;
+		background-color: $color_3;
+		padding: 0px 15px 0px 25px;
+	}
+	&__search-block-text {
+		resize: none;
+		background-color: $color_3;
+		font-size: 23px;
+		width: calc(100% - 50px);
+		height: 50px;
+		padding-top: 10px;
+	}
+	&__search-block-icon {
+		width: 40px;
+		height: 40px;
+		background-image: url(../graphics/icon_search_darck.svg);
+		background-size: contain;
+		cursor: pointer;
+	}
+}
+
+.full-screen {
+	// position: relative;  // todo уставимть или ...
+	left: 0;
+	right: 0;
+	height: 100%;
+	max-height: 100vh;
+	min-height: $fullscreen_min_height;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&__error-title {
+		position: absolute;
+		opacity: 0.05;
+		font-size: 500px;
+		pointer-events: none;
+		user-select: none;
+		width: 90%;
+	}
+	&__body {
+		width: 100%;
+		z-index: 1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__block-infographics {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.infographic-item {
+			min-width: 260px;
+			margin: 60px 0px 60px 0px;
+		}
+		.map-container {
+			width: 100%;
+			height: 400px;
+			// filter: grayscale(100%);
+		}
+		.map-border {
+			position: absolute;
+			width: 100%;
+			height: 400px;
+			border: 1px solid $color_6;
+			pointer-events: none;
+			opacity: 0.5;
+			left: 15px;
+			bottom: 25px;
+		}
+	}
+	&__bg-container {
+		position: fixed;
+		z-index: 0;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.content {
+	position: relative;
+	z-index: 2;
+	background-color: $color_3;
+	padding-bottom: 220px;
+	// overflow: hidden;
+	p,
+	h4,
+	h1 {
+		color: $color_1;
+	}
+	ol {
+		position: relative;
+		list-style-type: decimal;
+		margin: 30px 0px 0px 0px;
+		padding-left: 50px;
+		// ! max-height: 184px; // уснанавливаем значение в JS : checkExpandLists
+		overflow: hidden;
+		color: $color_1;
+		p {
+			line-height: 120%;
+		}
+		li {
+			margin-bottom: 20px;
+		}
+	}
+	.two-block-content,
+	.one-block-content {
+		margin-top: 84px; // ? 62, 100
+	}
+	&__expand-list-checkbox {
+		position: absolute;
+		pointer-events: none;
+		display: none;
+	}
+	&__expand-list-height-info {
+		position: absolute;
+		pointer-events: none;
+		display: none;
+	}
+
+	&__container {
+		z-index: 4;
+		position: relative;
+		margin: 0px auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding-bottom: 80px;
+		// overflow: hidden;
+	}
+	&__banner {
+		position: relative;
+		width: 680px;
+		height: 1060px;
+		margin-top: calc(-1060px + 360px);
+		opacity: 0;
+	}
+	&__banner-pic {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		// object-position: top right;
+		object-position: 97% 100%;
+		background-color: $color_1;
+	}
+	&__banner-border {
+		position: absolute;
+		width: inherit;
+		height: inherit;
+		border: 1px solid $color_6;
+		margin-left: 50px;
+		margin-top: -120px;
+	}
+	&__cg-progress {
+		z-index: 3;
+		position: absolute;
+		width: 100%;
+		height: 720px;
+		bottom: -1px;
+		background: url(../graphics/cg-progress.svg) 100% 100% no-repeat;
+		background-size: cover;
+		pointer-events: none;
+	}
+}
+.two-block-content {
+	position: relative;
+	width: 46%;
+	min-width: 380px;
+	// background-color: $color_2;
+}
+.one-block-content {
+	position: relative;
+	width: 100%;
+	min-width: 240px;
+	// background-color: $color_2;
+}
+.row-infographics {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	padding: 40px 0 40px 0;
+	background-color: $color_1;
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 100%;
+		max-width: 100%;
+		margin: 0px auto;
+	}
+}
+.infographic-item {
+	text-align: center;
+	padding: 0px 20px 3px 20px;
+	min-width: 240px;
+	span {
+		font-size: 23px;
+	}
+	h1 {
+		margin: 25px 0px 0px 0px;
+	}
+	p {
+		margin: 5px 0px 0px 0px;
+	}
+	&__icon {
+		width: 50px;
+		height: 50px;
+		margin-left: calc(50% - 25px);
+	}
+}
+.pdm-icon {
+	background-image: url(../graphics/icon-pdm.svg);
+}
+.mes-icon {
+	background-image: url(../graphics/icon-mes.svg);
+}
+.iot-icon {
+	background-image: url(../graphics/icon-iot.svg);
+}
+.eam-icon {
+	background-image: url(../graphics/icon-eam.svg);
+}
+
+// ? ----------------------------------------------------------------кнопки
+
+.button-style-1 {
+	:hover {
+		text-decoration: none;
+	}
+	margin-top: 18px;
+	display: inline-block;
+	text-align: left;
+	color: $color_3;
+	cursor: pointer;
+	user-select: none;
+	// background-color: $color_2;
+	p {
+		margin-top: 0;
+		padding-left: 50px;
+	}
+	span {
+		position: absolute;
+		width: 30px;
+		height: 1px;
+		margin-top: 16px;
+		background-color: $color_3;
+		pointer-events: none;
+	}
+}
+
+.button-style-2 {
+	:hover {
+		background-color: $color_3;
+		color: $color_1;
+	}
+	display: inline-block;
+	position: relative;
+	margin-top: 50px;
+	background-color: $color_2;
+	color: $color_3;
+	transition: all 0.2s linear;
+	cursor: pointer;
+	user-select: none;
+	p {
+		margin-top: 0;
+		padding: 10px 44px 10px 44px;
+		transition: color 0.2s linear;
+	}
+	span {
+		position: absolute;
+		width: 4000px;
+		height: 1px;
+		left: -4000px;
+		top: 25px;
+		background-color: $color_3;
+		pointer-events: none;
+	}
+}
+
+.button-style-3 {
+	margin-top: 25px;
+	padding: 0px 25px 0px 25px;
+	text-align: center;
+	background-color: rgba($color: $color_1, $alpha: 0.3);
+	color: $color_4;
+	border: 1px solid $color_4;
+	border-radius: 5px;
+	user-select: none;
+	cursor: pointer;
+	height: 40px;
+	h4 {
+		margin-top: 8px;
+	}
+	transition: background-color 0.2s linear;
+}
+.button-style-3:hover {
+	background-color: rgba($color: $color_3, $alpha: 1);
+	h4 {
+		color: $color_1;
+	}
+}
+.button-style-3-light {
+	color: $color_5;
+	border: 1px solid $color_5;
+}
+.button-dark-style {
+	color: $color_1;
+	span {
+		background-color: $color_1;
+	}
+}
+
+.button-expand {
+	display: inline-block;
+	margin-top: 25px;
+	color: $color_1;
+	cursor: pointer;
+	user-select: none;
+	// background-color: $color_2;
+	h4 {
+		padding-left: 50px;
+	}
+	.arrow-1 {
+		position: absolute;
+		width: 7px;
+		height: 4px;
+		margin-top: 3px;
+		margin-left: 2px;
+		background-image: url("../graphics/arrow-1.svg");
+		pointer-events: none;
+	}
+	.arrow-2 {
+		position: absolute;
+		width: 7px;
+		height: 4px;
+		margin-top: 14px;
+		margin-left: 2px;
+		background-image: url("../graphics/arrow-2.svg");
+		pointer-events: none;
+	}
+	.arrow-container {
+		position: absolute;
+		transform: rotate(45deg);
+		margin-left: 25px;
+	}
+}
+
+@import "footer.scss";
+@import "menu.scss";
+@import "feedback.scss";
+@import "media-queries-1920.scss";
+@import "media-queries-1366.scss";
+@import "media-queries-1024.scss";
+@import "media-queries-767.scss";
+@import "media-queries-425.scss";

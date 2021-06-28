@@ -1,0 +1,18 @@
+@media only screen and (max-width: 1366px) {
+	.width-limiter {
+		max-width: calc(100% - 120px);
+	}
+	.menu {
+		&__list {
+			margin-right: 40px;
+		}
+	}
+	.full-screen__block-infographics {
+		.infographic-item {
+			p {
+				font-size: 14px;
+			}
+			min-width: 210px;
+		}
+	}
+}

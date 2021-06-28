@@ -1,0 +1,185 @@
+.menu {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 74px;
+	background-color: rgba($color: $color_1, $alpha: 0.9);
+	z-index: 100;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 15px;
+
+	a.parent {
+		margin-right: 20px;
+	}
+
+	.arrow {
+		display: none;
+		position: absolute;
+		right: 0;
+		top: calc(50% - 4px);
+		width: 0;
+		height: 0;
+		border-top: 8px solid $color_5;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+	}
+	.arrow.active {
+		transform: rotate(-180deg);
+	}
+
+	&__logo {
+		width: 82px; // ? 120, 98
+		height: 56px; // ? 82, 67
+		background-image: url(../graphics/logo.svg);
+		background-size: contain;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+
+	&__container-btn {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		// width: 50%;
+		height: 100%;
+		// background-color: $color_2;
+	}
+	&__container-btn-right-part {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__list {
+		display: flex;
+		margin-right: 80px;
+		font-family: "UbuntuCondensed-Regular", sans-serif;
+		font-size: 23px;
+		// background-color: $color_2;
+
+		li {
+			position: relative;
+			cursor: pointer;
+		}
+	}
+	&__list > li {
+		margin: 0px 30px 0px 0px;
+	}
+
+	.sub-menu__link {
+		display: inline-block;
+		font-size: 15px; // ? также как в футере копирайт
+	}
+	.sub-menu__list {
+		display: none;
+		width: 100%;
+		position: absolute;
+		text-align: center;
+		padding: 25px 0px 0px 0px;
+	}
+	.sub-menu__list > li {
+		width: 140%;
+		margin-left: -20%;
+		// background-color: $color_1;
+		background-color: rgba($color: $color_1, $alpha: 0.9);
+		padding: 0px 0px 20px 0px;
+	}
+
+	&__home-btn {
+		position: relative;
+		width: 60px;
+		height: 60px;
+		margin-right: 20px;
+		cursor: pointer;
+		// background-color: $color_2;
+	}
+	&__home-icon {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: calc(50% - 40px / 2);
+		left: calc(50% - 40px / 2);
+		background-image: url(../graphics/icon_home.svg);
+		// pointer-events: none;// !
+		background-size: contain;
+	}
+
+	&__mail-btn {
+		position: relative;
+		width: 60px;
+		height: 60px;
+		// background-color: $color_2;
+	}
+	&__mail-icon {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: calc(50% - 40px / 2);
+		left: calc(50% - 40px / 2);
+		background-image: url(../graphics/icon_mail.svg);
+		pointer-events: none;
+		background-size: contain;
+	}
+	&__mail-oval {
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		top: calc(50% - 60px / 2);
+		left: calc(50% - 60px / 2);
+		border: 1px solid $color_3;
+		opacity: 0.5;
+		border-radius: 50%;
+		pointer-events: none;
+	}
+
+	&__menu-btn {
+		display: none;
+		position: relative;
+		width: 55px;
+		height: 24px;
+		// background-color: $color_2;
+	}
+	&__menu-btn-icon {
+		width: inherit;
+		height: inherit;
+		background-image: url(../graphics/icon_menu.svg);
+	}
+	.close-line-1 {
+		top: 4px;
+	}
+	.close-line-2 {
+		top: 22px;
+	}
+	&__icon-close-line {
+		position: absolute;
+		width: 30px;
+		height: 2px;
+		left: 13px;
+		background-color: $color_3;
+		display: none;
+	}
+}
+
+// body.mouse .menu__list > li:hover .sub-menu__list {
+// 	display: block;
+// }
+
+body.touch .sub-menu__list.open {
+	display: block;
+}
+
+body.touch .arrow {
+	display: block;
+}
+
+.menu-mobile-bg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: $color_1;
+	z-index: 3;
+	display: none;
+}

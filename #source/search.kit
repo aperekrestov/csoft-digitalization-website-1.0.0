@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSoft | Поиск</title>
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<!-- @import "popup-email.html" -->
+	<!-- @import "popup-call.html" -->
+	<!-- @import "menu.html" -->
+
+	<div class="full-screen">
+		<div class="full-screen__body width-limiter">
+			<div class="search-container">
+				<h2>Что бы вы хотели найти?</h2>
+				<div class="search-container__search-block">
+					<textarea class="search-container__search-block-text"
+						id="search-container__textarea">Введите запрос</textarea>
+					<div class="search-container__search-block-icon"></div>
+				</div>
+				<p>Поиск будет произведен по базам данных CSoft Цифровизация</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="full-screen__bg-container">
+		<video muted loop poster="graphics/poster.jpg" class="full-screen__bg" id="full-screen__video">
+			<source type="video/webm" src="graphics/video-fs.webm">
+			<source type="video/mp4" src="graphics/video-fs.mp4">
+		</video>
+		<div class="tint"></div>
+	</div>
+
+
+	<div class="wrapper-main-content">
+
+		<div class="content">
+			<div class="content__container  width-limiter">
+
+				<p>По Вашему запросу найдены следующие материалы:</p>
+
+				<div class="one-block-content">
+					<h1>
+						<span></span>
+						Первый результат поиска
+					</h1>
+					<p>
+						Наличие штатного встроенного интерфейса NS Project в NanoCAD, MS Word, MS Outlook. Штатный
+						модуль синхронизации
+						внутренней почты NS Project и корпоративных почтовых серверов позволяет обеспечить
+						автоматическую пересылку уведомлений на рабочую почту пользователя.
+					</p>
+					<div class="button-style-1 button-dark-style">
+						<a href="technologics.html">
+							<span></span>
+							<p>Подробнее</p>
+						</a>
+					</div>
+				</div>
+
+				<div class="one-block-content">
+					<h1>
+						<span></span>
+						Второй результат поиска
+					</h1>
+					<p>
+						Доступна персональная настройка интерфейса под каждого пользователя или преднастроенной роли.
+						Система является
+						инвариантной по отношению к пользователям. Возможности системы задействуются пользователем по
+						мере необходимости, в
+						зависимости от текущих задач.
+					</p>
+					<div class="button-style-1 button-dark-style">
+						<a href="nsproject.html">
+							<span></span>
+							<p>Подробнее</p>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="content__cg-progress"></div>
+		</div>
+
+		<!-- @import "footer-big-block.html" -->
+
+	</div>
+
+	<!-- @import "footer-line.html" -->
+
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
