@@ -1,21 +1,36 @@
 <div class="email-popup popup">
-	<div class="feedback-form width-limiter">
-		<h2>Форма обратной связи</h2>
 
+	<form class="feedback-form width-limiter">
+		<h2>Форма обратной связи</h2>
 		<p class="feedback-form__info" id="email-popup__info">Статус формы</p>
 
-		<textarea cols="100500" class="feedback-form__textarea-name feedback-form__two-block-textarea"
-			id="email-popup__client-name">Ваше имя</textarea>
+		<div class="feedback-form__flex-container-space-between">
+			<div class="feedback-form__input-container input-container-half-width">
+				<input id="email-popup__client-name" class="feedback-form__input" type="text" placeholder=" " />
+				<div class="feedback-form__cut cut-name-width"></div>
+				<label for="email-popup__client-name" class="feedback-form__placeholder">Ваше имя</label>
+			</div>
 
-		<textarea cols="100500" class="feedback-form__textarea-mail feedback-form__two-block-textarea"
-			id="email-popup__client-email-address">Ваш email</textarea>
+			<div class="feedback-form__input-container input-container-half-width">
+				<input id="email-popup__client-email-address" class="feedback-form__input" type="text"
+					placeholder=" " />
+				<div class="feedback-form__cut cut-email-width"></div>
+				<label for="email-popup__client-email-address" class="feedback-form__placeholder">Email</label>
+			</div>
+		</div>
 
+		<div class="feedback-form__input-container">
+			<textarea id="email-popup__message" class="feedback-form__input feedback-form__input-message" cols="100500"
+				placeholder=" "></textarea>
+			<div class="feedback-form__cut cut-message-width"></div>
+			<label for="email-popup__message" class="feedback-form__placeholder">Сообщение</label>
+		</div>
 
-		<textarea class="feedback-form__textarea-message" id="email-popup__message">Ваше сообщение</textarea>
-
-
-		<textarea cols="100500" class="feedback-form__textarea-code" id="email-popup__code">Введите код</textarea>
-		<div class="feedback-form__code"></div>
+		<div class="feedback-form__flex-container">
+			<input type="checkbox" id="email-popup__checkbox" class="feedback-form__checkbox">
+			<p id="email-popup__checkbox-title" class="feedback-form__checkbox-title">Даю согласие на обработку
+				персональных данных</p>
+		</div>
 
 		<div class="button-style-3 button-style-3-light popup__send" id="email-popup__send">
 			<h4>Отправить</h4>
@@ -24,6 +39,6 @@
 		<div class="button-style-3 popup__cancel" id="email-popup__cancel">
 			<h4>Отменить</h4>
 		</div>
+	</form>
 
-	</div>
 </div>

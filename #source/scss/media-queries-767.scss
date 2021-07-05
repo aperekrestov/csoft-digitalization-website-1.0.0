@@ -96,19 +96,16 @@
 		}
 	}
 	.feedback-form {
-		&__two-block-textarea {
+		&__flex-container-space-between {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		.input-container-half-width {
 			width: 100%;
 		}
-		&__textarea-code {
-			width: calc(50% - 10px);
-		}
-		&__code {
-			margin-left: calc(25% - 59px);
-		}
-		.button-style-1 {
-			float: none;
-			margin-left: calc(50% - 110px);
-			margin-top: 40px;
+		&__checkbox {
+			margin-top: 1px;
 		}
 		.popup__cancel {
 			float: left;

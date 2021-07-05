@@ -408,12 +408,14 @@ let response_code = 'Введите проверочный код'
 let response_code_correct = 'Неверный проверочный код'
 let response_email_successfully = 'Сообщение успешно отправлено'
 let response_call_successfully = 'Заявка успешно отправлена'
+let response_privacy = 'Необходимо согласиться на обработку данных'
 
 let nameSuccessfully = false
 let emailAddrassSuccessfully = false
 let phoneNumberSuccessfully = false
 let messageSuccessfully = false
 let codeSuccessfully = false
+let privacySuccessfully = false
 
 function validateEmail(email) {
 	const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -438,49 +440,48 @@ function validateMobile(mobileNumber) {
 
 
 // ? логика email popup -------------------------------------------------
-function pressEnterFromPopUp(event) {
-	if (event.which === 13) {
-		event.preventDefault()
-		sendMessageFromPopUp()
+document.getElementById('email-popup__checkbox-title').addEventListener('click', e => {
+	if (privacySuccessfully) {
+		privacySuccessfully = false
+		document.getElementById('email-popup__checkbox').checked = false
+	} else {
+		privacySuccessfully = true
+		document.getElementById('email-popup__checkbox').checked = true
 	}
-}
+})
+
 function showEmailPopup() {
 	resetEmailPopUpVariables()
 	document.querySelector('.email-popup').style.opacity = 1
 	document.querySelector('.email-popup').style.pointerEvents = 'auto'
-	document.getElementById('email-popup__client-name').addEventListener('keydown', pressEnterFromPopUp)
-	document.getElementById('email-popup__client-email-address').addEventListener('keydown', pressEnterFromPopUp)
-	document.getElementById('email-popup__message').addEventListener('keydown', pressEnterFromPopUp)
-	document.getElementById('email-popup__code').addEventListener('keydown', pressEnterFromPopUp)
 }
+
 function resetEmailPopUpVariables() {
 	nameSuccessfully = false
 	emailAddrassSuccessfully = false
 	messageSuccessfully = false
-	codeSuccessfully = false
-	document.getElementById('email-popup__client-name').value = 'Ваше имя'
-	document.getElementById('email-popup__client-email-address').value = 'Ваш email'
-	document.getElementById('email-popup__message').value = 'Ваше сообщение'
-	document.getElementById('email-popup__code').value = 'Введите код'
+	privacySuccessfully = false
+	document.getElementById('email-popup__checkbox').checked = false
+	document.getElementById('email-popup__client-name').value = ''
+	document.getElementById('email-popup__client-email-address').value = ''
+	document.getElementById('email-popup__message').value = ''
+
 	document.getElementById('email-popup__info').style.opacity = 0
 	document.getElementById('email-popup__info').style.color = '#da4e4d'
 }
+
 function sendMessageFromPopUp() {
-	if (document.getElementById('email-popup__code').value === 'Введите код') {
+
+	if (document.getElementById('email-popup__checkbox').checked == false) {
 		document.getElementById('email-popup__info').style.opacity = 1
-		document.getElementById('email-popup__info').textContent = response_code
-		codeSuccessfully = false
+		document.getElementById('email-popup__info').textContent = response_privacy
+		privacySuccessfully = false
 	} else {
-		if (document.getElementById('email-popup__code').value.toUpperCase() !== 'J3ZB7') {
-			document.getElementById('email-popup__info').style.opacity = 1
-			document.getElementById('email-popup__info').textContent = response_code_correct
-			codeSuccessfully = false
-		} else {
-			codeSuccessfully = true
-		}
+		privacySuccessfully = true
 	}
 
-	if (document.getElementById('email-popup__message').value === 'Ваше сообщение' || document.getElementById('email-popup__message').value === '') {
+	if (document.getElementById('email-popup__message').value === '') {
+		document.getElementById('email-popup__message').focus()
 		document.getElementById('email-popup__info').style.opacity = 1
 		document.getElementById('email-popup__info').textContent = response_message
 		messageSuccessfully = false
@@ -488,22 +489,17 @@ function sendMessageFromPopUp() {
 		messageSuccessfully = true
 	}
 
-	if (document.getElementById('email-popup__client-email-address').value === 'Ваш email') {
+	if (validateEmail(document.getElementById('email-popup__client-email-address').value) == false) {
+		document.getElementById('email-popup__client-email-address').focus()
 		document.getElementById('email-popup__info').style.opacity = 1
-		document.getElementById('email-popup__info').textContent = response_email
+		document.getElementById('email-popup__info').textContent = response_email_correct
 		emailAddrassSuccessfully = false
 	} else {
-		if (validateEmail(document.getElementById('email-popup__client-email-address').value) == false) {
-			document.getElementById('email-popup__info').style.opacity = 1
-			document.getElementById('email-popup__info').textContent = response_email_correct
-			emailAddrassSuccessfully = false
-		} else {
-			emailAddrassSuccessfully = true
-		}
-
+		emailAddrassSuccessfully = true
 	}
 
-	if (document.getElementById('email-popup__client-name').value === 'Ваше имя' || document.getElementById('email-popup__client-name').value === '') {
+	if (document.getElementById('email-popup__client-name').value === '') {
+		document.getElementById('email-popup__client-name').focus()
 		document.getElementById('email-popup__info').style.opacity = 1
 		document.getElementById('email-popup__info').textContent = response_name
 		nameSuccessfully = false
@@ -511,36 +507,22 @@ function sendMessageFromPopUp() {
 		nameSuccessfully = true
 	}
 
-	if (document.getElementById('email-popup__client-name').value === 'Ваше имя' &&
-		document.getElementById('email-popup__client-email-address').value === 'Ваш email' &&
-		document.getElementById('email-popup__message').value === 'Ваше сообщение' &&
-		document.getElementById('email-popup__code').value === 'Введите код'
+	if (document.getElementById('email-popup__client-name').value === '' &&
+		document.getElementById('email-popup__client-email-address').value === '' &&
+		document.getElementById('email-popup__message').value === ''
 	) {
 		document.getElementById('email-popup__info').style.opacity = 1
 		document.getElementById('email-popup__info').textContent = response_fill_all
 	}
 
-	if (nameSuccessfully && emailAddrassSuccessfully && messageSuccessfully && codeSuccessfully) {
+	if (nameSuccessfully && emailAddrassSuccessfully && messageSuccessfully && privacySuccessfully) {
 		// ! успешная обработка формы
-		if (mobileMenuView) {
-			hideMobileMenu()
-		}
-		document.getElementById('email-popup__client-name').removeEventListener('keydown', pressEnterFromPopUp)
-		document.getElementById('email-popup__client-email-address').removeEventListener('keydown', pressEnterFromPopUp)
-		document.getElementById('email-popup__message').removeEventListener('keydown', pressEnterFromPopUp)
-		document.getElementById('email-popup__code').removeEventListener('keydown', pressEnterFromPopUp)
-
-		document.getElementById('email-popup__client-name').blur()
-		document.getElementById('email-popup__client-email-address').blur()
-		document.getElementById('email-popup__message').blur()
-		document.getElementById('email-popup__code').blur()
-
-		let emailPopUpData = {
+		let emailFooterData = {
 			name: document.getElementById('email-popup__client-name').value,
 			email: document.getElementById('email-popup__client-email-address').value,
 			message: document.getElementById('email-popup__message').value
 		}
-		alert(JSON.stringify(emailPopUpData, null, 4)) // ! данные для обработки
+		alert(JSON.stringify(emailFooterData, null, 4)) // ! данные для обработки
 
 		document.querySelector('.email-popup').style.pointerEvents = 'none'
 		document.getElementById('email-popup__info').style.color = '#d5f1bd'
@@ -549,12 +531,16 @@ function sendMessageFromPopUp() {
 
 		setTimeout(function () {
 			document.querySelector('.email-popup').style.opacity = 0
+			document.querySelector('.email-popup').style.pointerEvents = 'none'
 			resetEmailPopUpVariables()
-			footerLineRelative()
+			if (mobileMenuView) {
+				hideMobileMenu()
+			} else {
+				footerLineRelative()
+			}
 		}, 2000)
 	}
 }
-
 
 document.getElementById('email-popup__send').addEventListener('click', e => {
 	sendMessageFromPopUp()
@@ -567,50 +553,6 @@ document.getElementById('email-popup__cancel').addEventListener('click', e => {
 	footerLineRelative()
 	if (mobileMenuView) {
 		hideMobileMenu()
-	}
-})
-
-document.getElementById('email-popup__client-name').addEventListener('focus', e => {
-	if (document.getElementById('email-popup__client-name').value === 'Ваше имя') {
-		document.getElementById('email-popup__client-name').value = ''
-	}
-})
-document.getElementById('email-popup__client-name').addEventListener('blur', e => {
-	if (document.getElementById('email-popup__client-name').value === '') {
-		document.getElementById('email-popup__client-name').value = 'Ваше имя'
-	}
-})
-
-document.getElementById('email-popup__client-email-address').addEventListener('focus', e => {
-	if (document.getElementById('email-popup__client-email-address').value === 'Ваш email') {
-		document.getElementById('email-popup__client-email-address').value = ''
-	}
-})
-document.getElementById('email-popup__client-email-address').addEventListener('blur', e => {
-	if (document.getElementById('email-popup__client-email-address').value === '') {
-		document.getElementById('email-popup__client-email-address').value = 'Ваш email'
-	}
-})
-
-document.getElementById('email-popup__message').addEventListener('focus', e => {
-	if (document.getElementById('email-popup__message').value === 'Ваше сообщение') {
-		document.getElementById('email-popup__message').value = ''
-	}
-})
-document.getElementById('email-popup__message').addEventListener('blur', e => {
-	if (document.getElementById('email-popup__message').value === '') {
-		document.getElementById('email-popup__message').value = 'Ваше сообщение'
-	}
-})
-
-document.getElementById('email-popup__code').addEventListener('focus', e => {
-	if (document.getElementById('email-popup__code').value === 'Введите код') {
-		document.getElementById('email-popup__code').value = ''
-	}
-})
-document.getElementById('email-popup__code').addEventListener('blur', e => {
-	if (document.getElementById('email-popup__code').value === '') {
-		document.getElementById('email-popup__code').value = 'Введите код'
 	}
 })
 // ? popup email------------------------------------------------------------------------------
@@ -640,55 +582,45 @@ document.getElementById('email-popup__code').addEventListener('blur', e => {
 
 // ? логика email footer -------------------------------------------------
 if (typeof (document.querySelector('.footer-big-block')) != 'undefined' && document.querySelector('.footer-big-block') != null) {
+	document.getElementById('email-footer__checkbox-title').addEventListener('click', e => {
+		if (privacySuccessfully) {
+			privacySuccessfully = false
+			document.getElementById('email-footer__checkbox').checked = false
+		} else {
+			privacySuccessfully = true
+			document.getElementById('email-footer__checkbox').checked = true
+		}
+	})
 
-	document.getElementById('email-footer__client-name').addEventListener('keydown', pressEnterFromFooter)
-	document.getElementById('email-footer__client-email-address').addEventListener('keydown', pressEnterFromFooter)
-	document.getElementById('email-footer__message').addEventListener('keydown', pressEnterFromFooter)
-	document.getElementById('email-footer__code').addEventListener('keydown', pressEnterFromFooter)
 
 	function resetEmailFooterVariables() {
 		document.getElementById('email-form-footer').style.pointerEvents = 'auto'
 		nameSuccessfully = false
 		emailAddrassSuccessfully = false
 		messageSuccessfully = false
-		codeSuccessfully = false
-		document.getElementById('email-footer__client-name').value = 'Ваше имя'
-		document.getElementById('email-footer__client-email-address').value = 'Ваш email'
-		document.getElementById('email-footer__message').value = 'Ваше сообщение'
-		document.getElementById('email-footer__code').value = 'Введите код'
+		privacySuccessfully = false
+
+		document.getElementById('email-footer__checkbox').checked = false
+		document.getElementById('email-footer__client-name').value = ''
+		document.getElementById('email-footer__client-email-address').value = ''
+		document.getElementById('email-footer__message').value = ''
+
 		document.getElementById('email-footer__info').style.opacity = 0
 		document.getElementById('email-footer__info').style.color = '#da4e4d'
-
-		document.getElementById('email-footer__client-name').addEventListener('keydown', pressEnterFromFooter)
-		document.getElementById('email-footer__client-email-address').addEventListener('keydown', pressEnterFromFooter)
-		document.getElementById('email-footer__message').addEventListener('keydown', pressEnterFromFooter)
-		document.getElementById('email-footer__code').addEventListener('keydown', pressEnterFromFooter)
 	}
-
-	function pressEnterFromFooter(event) {
-		if (event.which === 13) {
-			event.preventDefault()
-			sendMessageFromFooter()
-		}
-	}
-
 
 	function sendMessageFromFooter() {
-		if (document.getElementById('email-footer__code').value === 'Введите код') {
+
+		if (document.getElementById('email-footer__checkbox').checked == false) {
 			document.getElementById('email-footer__info').style.opacity = 1
-			document.getElementById('email-footer__info').textContent = response_code
-			codeSuccessfully = false
+			document.getElementById('email-footer__info').textContent = response_privacy
+			privacySuccessfully = false
 		} else {
-			if (document.getElementById('email-footer__code').value.toUpperCase() !== 'J3ZB7') {
-				document.getElementById('email-footer__info').style.opacity = 1
-				document.getElementById('email-footer__info').textContent = response_code_correct
-				codeSuccessfully = false
-			} else {
-				codeSuccessfully = true
-			}
+			privacySuccessfully = true
 		}
 
-		if (document.getElementById('email-footer__message').value === 'Ваше сообщение' || document.getElementById('email-footer__message').value === '') {
+		if (document.getElementById('email-footer__message').value === '') {
+			document.getElementById('email-footer__message').focus()
 			document.getElementById('email-footer__info').style.opacity = 1
 			document.getElementById('email-footer__info').textContent = response_message
 			messageSuccessfully = false
@@ -696,22 +628,17 @@ if (typeof (document.querySelector('.footer-big-block')) != 'undefined' && docum
 			messageSuccessfully = true
 		}
 
-		if (document.getElementById('email-footer__client-email-address').value === 'Ваш email') {
+		if (validateEmail(document.getElementById('email-footer__client-email-address').value) == false) {
+			document.getElementById('email-footer__client-email-address').focus()
 			document.getElementById('email-footer__info').style.opacity = 1
-			document.getElementById('email-footer__info').textContent = response_email
+			document.getElementById('email-footer__info').textContent = response_email_correct
 			emailAddrassSuccessfully = false
 		} else {
-			if (validateEmail(document.getElementById('email-footer__client-email-address').value) == false) {
-				document.getElementById('email-footer__info').style.opacity = 1
-				document.getElementById('email-footer__info').textContent = response_email_correct
-				emailAddrassSuccessfully = false
-			} else {
-				emailAddrassSuccessfully = true
-			}
-
+			emailAddrassSuccessfully = true
 		}
 
-		if (document.getElementById('email-footer__client-name').value === 'Ваше имя' || document.getElementById('email-footer__client-name').value === '') {
+		if (document.getElementById('email-footer__client-name').value === '') {
+			document.getElementById('email-footer__client-name').focus()
 			document.getElementById('email-footer__info').style.opacity = 1
 			document.getElementById('email-footer__info').textContent = response_name
 			nameSuccessfully = false
@@ -719,27 +646,16 @@ if (typeof (document.querySelector('.footer-big-block')) != 'undefined' && docum
 			nameSuccessfully = true
 		}
 
-		if (document.getElementById('email-footer__client-name').value === 'Ваше имя' &&
-			document.getElementById('email-footer__client-email-address').value === 'Ваш email' &&
-			document.getElementById('email-footer__message').value === 'Ваше сообщение' &&
-			document.getElementById('email-footer__code').value === 'Введите код'
+		if (document.getElementById('email-footer__client-name').value === '' &&
+			document.getElementById('email-footer__client-email-address').value === '' &&
+			document.getElementById('email-footer__message').value === ''
 		) {
 			document.getElementById('email-footer__info').style.opacity = 1
 			document.getElementById('email-footer__info').textContent = response_fill_all
 		}
 
-		if (nameSuccessfully && emailAddrassSuccessfully && messageSuccessfully && codeSuccessfully) {
+		if (nameSuccessfully && emailAddrassSuccessfully && messageSuccessfully && privacySuccessfully) {
 			// ! успешная обработка формы
-			document.getElementById('email-footer__client-name').removeEventListener('keydown', pressEnterFromFooter)
-			document.getElementById('email-footer__client-email-address').removeEventListener('keydown', pressEnterFromFooter)
-			document.getElementById('email-footer__message').removeEventListener('keydown', pressEnterFromFooter)
-			document.getElementById('email-footer__code').removeEventListener('keydown', pressEnterFromFooter)
-
-			document.getElementById('email-footer__client-name').blur()
-			document.getElementById('email-footer__client-email-address').blur()
-			document.getElementById('email-footer__message').blur()
-			document.getElementById('email-footer__code').blur()
-
 			let emailFooterData = {
 				name: document.getElementById('email-footer__client-name').value,
 				email: document.getElementById('email-footer__client-email-address').value,
@@ -758,53 +674,8 @@ if (typeof (document.querySelector('.footer-big-block')) != 'undefined' && docum
 		}
 	}
 
-
 	document.getElementById('email-footer__send').addEventListener('click', e => {
 		sendMessageFromFooter()
-	})
-
-	document.getElementById('email-footer__client-name').addEventListener('focus', e => {
-		if (document.getElementById('email-footer__client-name').value === 'Ваше имя') {
-			document.getElementById('email-footer__client-name').value = ''
-		}
-	})
-	document.getElementById('email-footer__client-name').addEventListener('blur', e => {
-		if (document.getElementById('email-footer__client-name').value === '') {
-			document.getElementById('email-footer__client-name').value = 'Ваше имя'
-		}
-	})
-
-	document.getElementById('email-footer__client-email-address').addEventListener('focus', e => {
-		if (document.getElementById('email-footer__client-email-address').value === 'Ваш email') {
-			document.getElementById('email-footer__client-email-address').value = ''
-		}
-	})
-	document.getElementById('email-footer__client-email-address').addEventListener('blur', e => {
-		if (document.getElementById('email-footer__client-email-address').value === '') {
-			document.getElementById('email-footer__client-email-address').value = 'Ваш email'
-		}
-	})
-
-	document.getElementById('email-footer__message').addEventListener('focus', e => {
-		if (document.getElementById('email-footer__message').value === 'Ваше сообщение') {
-			document.getElementById('email-footer__message').value = ''
-		}
-	})
-	document.getElementById('email-footer__message').addEventListener('blur', e => {
-		if (document.getElementById('email-footer__message').value === '') {
-			document.getElementById('email-footer__message').value = 'Ваше сообщение'
-		}
-	})
-
-	document.getElementById('email-footer__code').addEventListener('focus', e => {
-		if (document.getElementById('email-footer__code').value === 'Введите код') {
-			document.getElementById('email-footer__code').value = ''
-		}
-	})
-	document.getElementById('email-footer__code').addEventListener('blur', e => {
-		if (document.getElementById('email-footer__code').value === '') {
-			document.getElementById('email-footer__code').value = 'Введите код'
-		}
 	})
 }
 // ? footer email------------------------------------------------------------------------------
@@ -831,20 +702,21 @@ if (typeof (document.querySelector('.footer-big-block')) != 'undefined' && docum
 
 // ? логика обратного звонка -------------------------------------------------
 if (typeof (document.querySelector('.call-popup')) != 'undefined' && document.querySelector('.call-popup') != null) {
-	function pressEnterFromPopUpCall(event) {
-		if (event.which === 13) {
-			event.preventDefault()
-			sendMessageFromPopUpCall()
+
+	document.getElementById('call-popup__checkbox-title').addEventListener('click', e => {
+		if (privacySuccessfully) {
+			privacySuccessfully = false
+			document.getElementById('call-popup__checkbox').checked = false
+		} else {
+			privacySuccessfully = true
+			document.getElementById('call-popup__checkbox').checked = true
 		}
-	}
+	})
 
 	function showCallPopup() {
 		resetCallPopUpVariables()
 		document.querySelector('.call-popup').style.opacity = 1
 		document.querySelector('.call-popup').style.pointerEvents = 'auto'
-		document.getElementById('call-popup__client-name').addEventListener('keydown', pressEnterFromPopUpCall)
-		document.getElementById('call-popup__client-phone').addEventListener('keydown', pressEnterFromPopUpCall)
-		document.getElementById('call-popup__code').addEventListener('keydown', pressEnterFromPopUpCall)
 
 		document.getElementById('call-popup__client-phone').addEventListener('keypress', e => {
 			// Отменяем ввод не цифр и символов для номера телефона
@@ -856,43 +728,35 @@ if (typeof (document.querySelector('.call-popup')) != 'undefined' && document.qu
 		nameSuccessfully = false
 		phoneNumberSuccessfully = false
 		codeSuccessfully = false
-		document.getElementById('call-popup__client-name').value = 'Ваше имя'
-		document.getElementById('call-popup__client-phone').value = 'Ваш номер'
-		document.getElementById('call-popup__code').value = 'Введите код'
+		privacySuccessfully = false
+
+		document.getElementById('call-popup__checkbox').checked = false
+		document.getElementById('call-popup__client-name').value = ''
+		document.getElementById('call-popup__client-phone').value = ''
+
 		document.getElementById('call-popup__info').style.opacity = 0
 		document.getElementById('call-popup__info').style.color = '#da4e4d'
 	}
 	function sendMessageFromPopUpCall() {
-		if (document.getElementById('call-popup__code').value === 'Введите код') {
+		if (document.getElementById('call-popup__checkbox').checked == false) {
 			document.getElementById('call-popup__info').style.opacity = 1
-			document.getElementById('call-popup__info').textContent = response_code
-			codeSuccessfully = false
+			document.getElementById('call-popup__info').textContent = response_privacy
+			privacySuccessfully = false
 		} else {
-			if (document.getElementById('call-popup__code').value.toUpperCase() !== 'J3ZB7') {
-				document.getElementById('call-popup__info').style.opacity = 1
-				document.getElementById('call-popup__info').textContent = response_code_correct
-				codeSuccessfully = false
-			} else {
-				codeSuccessfully = true
-			}
+			privacySuccessfully = true
 		}
 
-		if (document.getElementById('call-popup__client-phone').value === 'Ваш номер') {
+		if (validateMobile(document.getElementById('call-popup__client-phone').value) == false) {
+			document.getElementById('call-popup__client-phone').focus()
 			document.getElementById('call-popup__info').style.opacity = 1
-			document.getElementById('call-popup__info').textContent = response_phone
+			document.getElementById('call-popup__info').textContent = response_phone_correct
 			phoneNumberSuccessfully = false
 		} else {
-			if (validateMobile(document.getElementById('call-popup__client-phone').value) == false) {
-				document.getElementById('call-popup__info').style.opacity = 1
-				document.getElementById('call-popup__info').textContent = response_phone_correct
-				phoneNumberSuccessfully = false
-			} else {
-				phoneNumberSuccessfully = true
-			}
-
+			phoneNumberSuccessfully = true
 		}
 
-		if (document.getElementById('call-popup__client-name').value === 'Ваше имя' || document.getElementById('call-popup__client-name').value === '') {
+		if (document.getElementById('call-popup__client-name').value === '') {
+			document.getElementById('call-popup__client-name').focus()
 			document.getElementById('call-popup__info').style.opacity = 1
 			document.getElementById('call-popup__info').textContent = response_name
 			nameSuccessfully = false
@@ -900,24 +764,15 @@ if (typeof (document.querySelector('.call-popup')) != 'undefined' && document.qu
 			nameSuccessfully = true
 		}
 
-		if (document.getElementById('call-popup__client-name').value === 'Ваше имя' &&
-			document.getElementById('call-popup__client-phone').value === 'Ваш номер' &&
-			document.getElementById('call-popup__code').value === 'Введите код'
+		if (document.getElementById('call-popup__client-name').value === '' &&
+			document.getElementById('call-popup__client-phone').value === ''
 		) {
 			document.getElementById('call-popup__info').style.opacity = 1
 			document.getElementById('call-popup__info').textContent = response_fill_all
 		}
 
-		if (nameSuccessfully && phoneNumberSuccessfully && codeSuccessfully) {
+		if (nameSuccessfully && phoneNumberSuccessfully && privacySuccessfully) {
 			// ! успешная обработка формы
-			document.getElementById('call-popup__client-name').removeEventListener('keydown', pressEnterFromPopUpCall)
-			document.getElementById('call-popup__client-phone').removeEventListener('keydown', pressEnterFromPopUpCall)
-			document.getElementById('call-popup__code').removeEventListener('keydown', pressEnterFromPopUpCall)
-
-			document.getElementById('call-popup__client-name').blur()
-			document.getElementById('call-popup__client-phone').blur()
-			document.getElementById('call-popup__code').blur()
-
 			let callPopUpData = {
 				name: document.getElementById('call-popup__client-name').value,
 				phone: document.getElementById('call-popup__client-phone').value,
@@ -931,8 +786,9 @@ if (typeof (document.querySelector('.call-popup')) != 'undefined' && document.qu
 
 			setTimeout(function () {
 				document.querySelector('.call-popup').style.opacity = 0
+				document.querySelector('.call-popup').style.pointerEvents = 'none'
 				resetCallPopUpVariables()
-				footerLineRelative()
+				footerLineRelative() // todo проверить 
 			}, 2000)
 		}
 	}
@@ -949,38 +805,6 @@ if (typeof (document.querySelector('.call-popup')) != 'undefined' && document.qu
 		footerLineRelative()
 	})
 
-	document.getElementById('call-popup__client-name').addEventListener('focus', e => {
-		if (document.getElementById('call-popup__client-name').value === 'Ваше имя') {
-			document.getElementById('call-popup__client-name').value = ''
-		}
-	})
-	document.getElementById('call-popup__client-name').addEventListener('blur', e => {
-		if (document.getElementById('call-popup__client-name').value === '') {
-			document.getElementById('call-popup__client-name').value = 'Ваше имя'
-		}
-	})
-
-	document.getElementById('call-popup__client-phone').addEventListener('focus', e => {
-		if (document.getElementById('call-popup__client-phone').value === 'Ваш номер') {
-			document.getElementById('call-popup__client-phone').value = ''
-		}
-	})
-	document.getElementById('call-popup__client-phone').addEventListener('blur', e => {
-		if (document.getElementById('call-popup__client-phone').value === '') {
-			document.getElementById('call-popup__client-phone').value = 'Ваш номер'
-		}
-	})
-
-	document.getElementById('call-popup__code').addEventListener('focus', e => {
-		if (document.getElementById('call-popup__code').value === 'Введите код') {
-			document.getElementById('call-popup__code').value = ''
-		}
-	})
-	document.getElementById('call-popup__code').addEventListener('blur', e => {
-		if (document.getElementById('call-popup__code').value === '') {
-			document.getElementById('call-popup__code').value = 'Введите код'
-		}
-	})
 }
 // ?  обратный звонок ------------------------------------------------------------------------------
 

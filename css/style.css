@@ -991,7 +991,7 @@ body.touch .arrow {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  background: url(../graphics/bg-3.svg) center/cover no-repeat;
+  background: url(../graphics/bg-5.svg) center/cover no-repeat;
   background-color: #0c121c;
   min-height: 500px;
   width: 100%;
@@ -1014,6 +1014,7 @@ body.touch .arrow {
   width: 100%;
   max-width: 1024px;
   margin: 0px auto;
+  font-size: 23px;
 }
 .feedback-form h2 {
   text-align: center;
@@ -1029,62 +1030,139 @@ body.touch .arrow {
   pointer-events: none;
   opacity: 0;
 }
-.feedback-form__two-block-textarea {
-  display: inline-block;
-  margin-top: 20px;
-  resize: none;
-  font-size: 23px;
-  width: calc(50% - 10px);
-  height: 50px;
-  padding: 10px 0px 0px 15px;
-  overflow: hidden;
-}
-.feedback-form__textarea-mail {
-  float: right;
-  overflow: hidden;
-}
-.feedback-form__textarea-message {
-  resize: vertical;
-  margin-top: 20px;
-  font-size: 23px;
-  width: 100%;
-  height: 50px;
-  padding: 10px 0px 0px 15px;
-}
-.feedback-form__textarea-code {
-  display: inline-block;
-  resize: none;
-  margin-top: 20px;
-  font-size: 23px;
-  width: 25%;
-  min-width: 100px;
-  height: 50px;
-  padding: 10px 0px 0px 15px;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid #c7ddeb;
-  color: #c7ddeb;
-  overflow: hidden;
-}
-.feedback-form__code {
-  display: inline-block;
-  width: 165px;
-  height: 50px;
-  margin-left: 20px;
-  background-image: url(../graphics/feedback-code.svg);
-  background-size: cover;
-}
-.feedback-form .button-style-1 {
-  margin-top: 28px;
-  float: right;
-}
-.feedback-form .button-style-1 p {
-  margin-top: 0px;
-}
 .feedback-form .button-style-3 {
   float: right;
 }
 .feedback-form .popup__send {
   margin-left: 20px;
+}
+.feedback-form__checkbox {
+  margin-top: 4px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.feedback-form__checkbox-title {
+  margin: 0px 0px 0px 10px;
+  line-height: 100%;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #c7c8cc;
+}
+.feedback-form__flex-container-space-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.feedback-form__flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+.feedback-form__input-container {
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+.feedback-form .input-container-half-width {
+  width: calc(50% - 10px);
+}
+.feedback-form__input {
+  width: 100%;
+  height: 50px;
+  background-color: #f5fafc;
+  color: #0c121c;
+  font-size: 23px;
+  padding: 4px 20px 0;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+}
+.feedback-form__input-message {
+  padding: 15px 20px 0;
+  height: 100px;
+  resize: vertical;
+}
+.feedback-form__cut {
+  position: absolute;
+  background-color: #0c121c;
+  left: 20px;
+  top: -24px;
+  height: 24px;
+  border-radius: 12px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+.feedback-form .cut-name-width {
+  width: 85px;
+}
+.feedback-form .cut-email-width {
+  width: 55px;
+}
+.feedback-form .cut-message-width {
+  width: 95px;
+}
+.feedback-form .cut-call-width {
+  width: 63px;
+}
+.feedback-form__placeholder {
+  position: absolute;
+  color: rgba(12, 18, 28, 0.5);
+  top: 18px;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transition: color 200ms, -webkit-transform 200ms;
+  transition: color 200ms, -webkit-transform 200ms;
+  transition: transform 200ms, color 200ms;
+  transition: transform 200ms, color 200ms, -webkit-transform 200ms;
+}
+.feedback-form__input:not(:-moz-placeholder-shown) ~ .feedback-form__cut {
+  transform: translateY(10px);
+}
+.feedback-form__input:not(:-ms-input-placeholder) ~ .feedback-form__cut {
+  transform: translateY(10px);
+}
+.feedback-form__input:focus ~ .feedback-form__cut, .feedback-form__input:not(:placeholder-shown) ~ .feedback-form__cut {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+.feedback-form__input:not(:-moz-placeholder-shown) ~ .feedback-form__placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+.feedback-form__input:not(:-ms-input-placeholder) ~ .feedback-form__placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+.feedback-form__input:focus ~ .feedback-form__placeholder, .feedback-form__input:not(:placeholder-shown) ~ .feedback-form__placeholder {
+  -webkit-transform: translateY(-30px) translateX(10px) scale(0.75);
+          transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+.feedback-form__input:not(:-moz-placeholder-shown) ~ .feedback-form__placeholder {
+  color: #f5fafc;
+}
+.feedback-form__input:not(:-ms-input-placeholder) ~ .feedback-form__placeholder {
+  color: #f5fafc;
+}
+.feedback-form__input:not(:placeholder-shown) ~ .feedback-form__placeholder {
+  color: #f5fafc;
+}
+.feedback-form__input:focus ~ .feedback-form__placeholder {
+  color: #da4e4d;
 }
 
 @media only screen and (min-width: 1920px) {
@@ -1228,38 +1306,72 @@ body.touch .arrow {
     height: 30px;
   }
 
+  .feedback-form {
+    font-size: 16px;
+  }
   .feedback-form h2 {
     font-size: 42px;
   }
   .feedback-form p {
     margin-top: 0;
   }
-  .feedback-form__two-block-textarea {
-    margin-top: 14px;
+  .feedback-form__input-container {
+    margin-top: 20px;
+  }
+  .feedback-form .input-container-half-width {
+    width: calc(50% - 5px);
+  }
+  .feedback-form__input {
+    height: 36px;
     font-size: 16px;
-    width: calc(50% - 7px);
-    height: 36px;
-    padding: 8px 0px 0px 15px;
+    padding: 0 15px 0;
+    border-radius: 5px;
   }
-  .feedback-form__textarea-message {
-    margin-top: 14px;
-    font-size: 16px;
-    height: 36px;
-    padding: 8px 0px 0px 15px;
+  .feedback-form__input-message {
+    padding: 9px 15px 0;
+    height: 72px;
   }
-  .feedback-form__textarea-code {
-    margin-top: 14px;
-    font-size: 16px;
-    height: 36px;
-    padding: 8px 0px 0px 15px;
+  .feedback-form__cut {
+    left: 15px;
+    top: -20px;
+    height: 20px;
+    border-radius: 10px;
   }
-  .feedback-form__code {
-    width: 118px;
-    height: 36px;
-    margin-left: 20px;
+  .feedback-form .cut-name-width {
+    width: 72px;
   }
-  .feedback-form .button-style-1 {
-    margin-top: 16px;
+  .feedback-form .cut-email-width {
+    width: 48px;
+  }
+  .feedback-form .cut-message-width {
+    width: 80px;
+  }
+  .feedback-form .cut-call-width {
+    width: 55px;
+  }
+  .feedback-form__placeholder {
+    top: 10px;
+    left: 15px;
+  }
+  .feedback-form__input:not(:-moz-placeholder-shown) ~ .feedback-form__cut {
+    transform: translateY(8px);
+  }
+  .feedback-form__input:not(:-ms-input-placeholder) ~ .feedback-form__cut {
+    transform: translateY(8px);
+  }
+  .feedback-form__input:focus ~ .feedback-form__cut, .feedback-form__input:not(:placeholder-shown) ~ .feedback-form__cut {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  .feedback-form__input:not(:-moz-placeholder-shown) ~ .feedback-form__placeholder {
+    transform: translateY(-22px) translateX(10px) scale(0.85);
+  }
+  .feedback-form__input:not(:-ms-input-placeholder) ~ .feedback-form__placeholder {
+    transform: translateY(-22px) translateX(10px) scale(0.85);
+  }
+  .feedback-form__input:focus ~ .feedback-form__placeholder, .feedback-form__input:not(:placeholder-shown) ~ .feedback-form__placeholder {
+    -webkit-transform: translateY(-22px) translateX(10px) scale(0.85);
+            transform: translateY(-22px) translateX(10px) scale(0.85);
   }
   .feedback-form .button-style-3 {
     height: 32px;
@@ -1366,19 +1478,23 @@ body.touch .arrow {
     width: 100%;
   }
 
-  .feedback-form__two-block-textarea {
+  .feedback-form__flex-container-space-between {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .feedback-form .input-container-half-width {
     width: 100%;
   }
-  .feedback-form__textarea-code {
-    width: calc(50% - 10px);
-  }
-  .feedback-form__code {
-    margin-left: calc(25% - 59px);
-  }
-  .feedback-form .button-style-1 {
-    float: none;
-    margin-left: calc(50% - 110px);
-    margin-top: 40px;
+  .feedback-form__checkbox {
+    margin-top: 1px;
   }
   .feedback-form .popup__cancel {
     float: left;
@@ -1442,10 +1558,5 @@ body.touch .arrow {
 
   .feedback-form h2 {
     font-size: 28px;
-  }
-  .feedback-form__code {
-    width: 98.3px;
-    height: 30px;
-    margin-bottom: 2px;
   }
 }
