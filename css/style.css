@@ -1037,7 +1037,8 @@ body.touch .arrow {
   margin-left: 20px;
 }
 .feedback-form__checkbox {
-  margin-top: 4px;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1045,8 +1046,8 @@ body.touch .arrow {
           user-select: none;
 }
 .feedback-form__checkbox-title {
-  margin: 0px 0px 0px 10px;
-  line-height: 100%;
+  margin-left: 1rem;
+  margin-top: 0.3rem;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
