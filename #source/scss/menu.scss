@@ -93,10 +93,10 @@
 		width: 60px;
 		height: 60px;
 		margin-right: 20px;
-		cursor: pointer;
 		// background-color: $color_2;
 	}
 	&__home-icon {
+		cursor: pointer;
 		position: absolute;
 		width: 40px;
 		height: 40px;
@@ -111,6 +111,7 @@
 		position: relative;
 		width: 60px;
 		height: 60px;
+		cursor: pointer;
 		// background-color: $color_2;
 	}
 	&__mail-icon {
@@ -182,4 +183,40 @@ body.touch .arrow {
 	background-color: $color_1;
 	z-index: 3;
 	display: none;
+}
+
+// ? отметки текущих страниц
+body.__main {
+	.menu__home-btn {
+		pointer-events: none;
+		opacity: 0.66;
+	}
+}
+body.__services {
+	.__servicess-btn {
+		text-decoration: underline;
+	}
+}
+body.__contacts {
+	.__contacts-btn {
+		text-decoration: underline;
+	}
+}
+
+body.__products {
+	.__products-btn {
+		text-decoration: underline;
+	}
+}
+
+body.__products-01 {
+	.__products-01-btn {
+		text-decoration: underline;
+	}
+}
+
+body.__products-02 {
+	.__products-02-btn {
+		text-decoration: underline;
+	}
 }

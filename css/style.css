@@ -277,6 +277,7 @@ a:hover {
 .full-screen__block-infographics .map-container {
   width: 100%;
   height: 400px;
+  background-image: url(../../graphics/map.jpg);
 }
 .full-screen__block-infographics .map-border {
   position: absolute;
@@ -706,6 +707,7 @@ a:hover {
 }
 .footer-big-block__up {
   margin-left: 60px;
+  cursor: pointer;
 }
 .footer-big-block__icon-up {
   background-image: url(../graphics/icon_up.svg);
@@ -714,6 +716,7 @@ a:hover {
 .footer-big-block__search {
   margin-left: 120px;
   margin-top: 60px;
+  cursor: pointer;
 }
 .footer-big-block__icon-search {
   background-image: url(../graphics/icon_search.svg);
@@ -722,6 +725,7 @@ a:hover {
 .footer-big-block__staf {
   margin-left: 60px;
   margin-top: 120px;
+  cursor: pointer;
 }
 .footer-big-block__icon-staf {
   background-image: url(../graphics/icon_staf.svg);
@@ -729,6 +733,7 @@ a:hover {
 }
 .footer-big-block__youtube {
   margin-top: 60px;
+  cursor: pointer;
 }
 .footer-big-block__icon-youtube {
   background-image: url(../graphics/icon_youtube.svg);
@@ -899,9 +904,9 @@ a:hover {
   width: 60px;
   height: 60px;
   margin-right: 20px;
-  cursor: pointer;
 }
 .menu__home-icon {
+  cursor: pointer;
   position: absolute;
   width: 40px;
   height: 40px;
@@ -914,6 +919,7 @@ a:hover {
   position: relative;
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 .menu__mail-icon {
   position: absolute;
@@ -977,6 +983,31 @@ body.touch .arrow {
   background-color: #0c121c;
   z-index: 3;
   display: none;
+}
+
+body.__main .menu__home-btn {
+  pointer-events: none;
+  opacity: 0.66;
+}
+
+body.__services .__servicess-btn {
+  text-decoration: underline;
+}
+
+body.__contacts .__contacts-btn {
+  text-decoration: underline;
+}
+
+body.__products .__products-btn {
+  text-decoration: underline;
+}
+
+body.__products-01 .__products-01-btn {
+  text-decoration: underline;
+}
+
+body.__products-02 .__products-02-btn {
+  text-decoration: underline;
 }
 
 .popup {
