@@ -62,7 +62,7 @@ function resetEmailPopUpVariables() {
 	emailAddrassSuccessfully = false
 	messageSuccessfully = false
 	privacySuccessfully = false
-	document.getElementById('email-popup__checkbox').checked = false
+	document.getElementById('email-popup__checkbox').checked = true
 	document.getElementById('email-popup__client-name').value = ''
 	document.getElementById('email-popup__client-email-address').value = ''
 	document.getElementById('email-popup__message').value = ''
@@ -201,7 +201,7 @@ if (typeof (document.querySelector('.footer-big-block')) != 'undefined' && docum
 		messageSuccessfully = false
 		privacySuccessfully = false
 
-		document.getElementById('email-footer__checkbox').checked = false
+		document.getElementById('email-footer__checkbox').checked = true
 		document.getElementById('email-footer__client-name').value = ''
 		document.getElementById('email-footer__client-email-address').value = ''
 		document.getElementById('email-footer__message').value = ''
@@ -331,7 +331,7 @@ if (typeof (document.querySelector('.call-popup')) != 'undefined' && document.qu
 		codeSuccessfully = false
 		privacySuccessfully = false
 
-		document.getElementById('call-popup__checkbox').checked = false
+		document.getElementById('call-popup__checkbox').checked = true
 		document.getElementById('call-popup__client-name').value = ''
 		document.getElementById('call-popup__client-phone').value = ''
 
