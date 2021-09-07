@@ -237,15 +237,13 @@ a:hover {
           align-items: center;
 }
 .full-screen__error-title {
-  position: absolute;
-  opacity: 0.05;
   font-size: 500px;
+  opacity: 0.05;
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 90%;
 }
 .full-screen__body {
   width: 100%;
@@ -1228,6 +1226,10 @@ body.__products-02 .__products-02-btn {
   }
   .full-screen__block-infographics .infographic-item p {
     font-size: 14px;
+  }
+
+  .full-screen__error-title {
+    font-size: 380px;
   }
 }
 @media (max-width: 1024px) {
