@@ -1027,14 +1027,17 @@ body.__main .menu__home-btn {
 
 body.__services .__servicess-btn {
   text-decoration: underline;
+  opacity: 0.66;
 }
 
 body.__contacts .__contacts-btn {
   text-decoration: underline;
+  opacity: 0.66;
 }
 
 body.__products .__products-btn {
   text-decoration: underline;
+  opacity: 0.66;
 }
 
 body.__products-01 .__products-01-btn {
