@@ -396,8 +396,8 @@ a:hover {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 97% 100%;
-     object-position: 97% 100%;
+  -o-object-position: 84% 100%;
+     object-position: 84% 100%;
   background-color: #0c121c;
 }
 .content__banner-border {
