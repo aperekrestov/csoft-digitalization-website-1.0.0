@@ -53,8 +53,9 @@
 		user-select: none;
 	}
 	&__checkbox-title {
+		line-height: 100%;
 		margin-left: 1rem;
-		margin-top: 0.3rem;
+		margin-top: 10px;
 		cursor: pointer;
 		user-select: none;
 		color: $color_6;
