@@ -57,7 +57,18 @@ p {
 	font-size: 18px;
 	line-height: 180%;
 	margin: 18px 0px 0px 0px;
+	a {
+		color: $color_2;
+	}
 }
+.numbering {
+	margin-bottom: 15px;
+}
+.super-headline {
+	margin: 60px 0 10px 0;
+	font-size: 60px;
+}
+
 a:hover {
 	text-decoration: underline;
 }
@@ -74,8 +85,8 @@ a:hover {
 	// mix-blend-mode: hard-light;
 	// mix-blend-mode: multiply;
 }
-.numbering {
-	margin-bottom: 15px;
+.margin-bottom-container {
+	margin-bottom: 40px;
 }
 
 .search-container {
@@ -195,21 +206,34 @@ a:hover {
 	h1 {
 		color: $color_1;
 	}
-	ol {
-		position: relative;
-		list-style-type: decimal;
-		margin: 30px 0px 0px 0px;
-		padding-left: 50px;
-		// ! max-height: 184px; // уснанавливаем значение в JS : checkExpandLists
-		overflow: hidden;
-		color: $color_1;
-		p {
-			line-height: 120%;
+	p {
+		a {
+			color: $color_2;
 		}
+	}
+	ol,
+	ul {
+		// ! max-height: 184px; // уснанавливаем значение в JS : checkExpandLists
+		position: relative;
+		color: $color_1;
+		font-family: "Ubuntu-Regular", sans-serif;
+		font-size: 18px;
+		line-height: 120%;
+		margin: 30px 0px 0px 0px;
+		padding-left: 34px;
+		overflow: hidden;
 		li {
 			margin-bottom: 20px;
 		}
+		a {
+			color: $color_2;
+		}
 	}
+
+	.list-style-type-disc {
+		list-style-type: disc;
+	}
+
 	.two-block-content,
 	.one-block-content {
 		margin-top: 84px; // ? 62, 100
@@ -233,6 +257,9 @@ a:hover {
 		flex-wrap: wrap;
 		justify-content: space-between;
 		padding-bottom: 80px;
+		h3 {
+			color: $color_1;
+		}
 		// overflow: hidden;
 	}
 	&__banner {
@@ -274,13 +301,11 @@ a:hover {
 	position: relative;
 	width: 46%;
 	min-width: 380px;
-	// background-color: $color_2;
 }
 .one-block-content {
 	position: relative;
 	width: 100%;
 	min-width: 240px;
-	// background-color: $color_2;
 }
 .row-infographics {
 	position: relative;
@@ -341,7 +366,6 @@ a:hover {
 	color: $color_3;
 	cursor: pointer;
 	user-select: none;
-	// background-color: $color_2;
 	p {
 		margin-top: 0;
 		padding-left: 50px;
@@ -424,7 +448,6 @@ a:hover {
 	color: $color_1;
 	cursor: pointer;
 	user-select: none;
-	// background-color: $color_2;
 	h4 {
 		padding-left: 50px;
 	}

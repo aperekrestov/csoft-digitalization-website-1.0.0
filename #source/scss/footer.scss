@@ -157,6 +157,9 @@
 	&__left-part {
 		display: flex;
 	}
+	&__right-part {
+		display: flex;
+	}
 	&__icon-lang-ru {
 		width: 26px;
 		height: 17px;
@@ -170,9 +173,15 @@
 		font-size: 15px; // ? также как в меню выпадающий список
 	}
 	&__icon-info {
-		width: 21px;
-		height: 20px;
+		width: 40px;
+		height: 40px;
 		cursor: pointer;
 		background-image: url(../graphics/icon_info.svg);
+	}
+	&__icon-policy {
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+		background-image: url(../graphics/icon_policy.svg);
 	}
 }

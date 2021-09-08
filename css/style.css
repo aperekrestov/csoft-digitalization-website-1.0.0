@@ -142,6 +142,18 @@ p {
   line-height: 180%;
   margin: 18px 0px 0px 0px;
 }
+p a {
+  color: #da4e4d;
+}
+
+.numbering {
+  margin-bottom: 15px;
+}
+
+.super-headline {
+  margin: 60px 0 10px 0;
+  font-size: 60px;
+}
 
 a:hover {
   text-decoration: underline;
@@ -159,8 +171,8 @@ a:hover {
   opacity: 0.7;
 }
 
-.numbering {
-  margin-bottom: 15px;
+.margin-bottom-container {
+  margin-bottom: 40px;
 }
 
 .search-container {
@@ -315,19 +327,30 @@ a:hover {
 .content h1 {
   color: #0c121c;
 }
-.content ol {
+.content p a {
+  color: #da4e4d;
+}
+.content ol,
+.content ul {
   position: relative;
-  list-style-type: decimal;
-  margin: 30px 0px 0px 0px;
-  padding-left: 50px;
-  overflow: hidden;
   color: #0c121c;
-}
-.content ol p {
+  font-family: "Ubuntu-Regular", sans-serif;
+  font-size: 18px;
   line-height: 120%;
+  margin: 30px 0px 0px 0px;
+  padding-left: 34px;
+  overflow: hidden;
 }
-.content ol li {
+.content ol li,
+.content ul li {
   margin-bottom: 20px;
+}
+.content ol a,
+.content ul a {
+  color: #da4e4d;
+}
+.content .list-style-type-disc {
+  list-style-type: disc;
 }
 .content .two-block-content,
 .content .one-block-content {
@@ -356,6 +379,9 @@ a:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 80px;
+}
+.content__container h3 {
+  color: #0c121c;
 }
 .content__banner {
   position: relative;
@@ -771,6 +797,11 @@ a:hover {
   display: -ms-flexbox;
   display: flex;
 }
+.footer-line__right-part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .footer-line__icon-lang-ru {
   width: 26px;
   height: 17px;
@@ -787,10 +818,16 @@ a:hover {
   font-size: 15px;
 }
 .footer-line__icon-info {
-  width: 21px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   background-image: url(../graphics/icon_info.svg);
+}
+.footer-line__icon-policy {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-image: url(../graphics/icon_policy.svg);
 }
 
 .menu {
@@ -1435,6 +1472,16 @@ body.__products-02 .__products-02-btn {
   }
 
   p {
+    font-size: 14px;
+  }
+
+  .super-headline {
+    margin: 10px 0 10px 0;
+    font-size: 32px;
+  }
+
+  .content ol,
+.content ul {
     font-size: 14px;
   }
 
