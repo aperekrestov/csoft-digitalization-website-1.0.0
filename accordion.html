@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSoft | Аккордеон</title>
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="email-popup popup">
+
+	<form class="feedback-form width-limiter">
+		<h2>Форма обратной связи</h2>
+		<p class="feedback-form__info" id="email-popup__info">Статус формы</p>
+
+		<div class="feedback-form__flex-container-space-between">
+			<div class="feedback-form__input-container input-container-half-width">
+				<input id="email-popup__client-name" class="feedback-form__input" type="text" placeholder=" " />
+				<div class="feedback-form__cut cut-name-width"></div>
+				<label for="email-popup__client-name" class="feedback-form__placeholder">Ваше имя</label>
+			</div>
+
+			<div class="feedback-form__input-container input-container-half-width">
+				<input id="email-popup__client-email-address" class="feedback-form__input" type="text"
+					placeholder=" " />
+				<div class="feedback-form__cut cut-email-width"></div>
+				<label for="email-popup__client-email-address" class="feedback-form__placeholder">Email</label>
+			</div>
+		</div>
+
+		<div class="feedback-form__input-container">
+			<textarea id="email-popup__message" class="feedback-form__input feedback-form__input-message" cols="100500"
+				placeholder=" "></textarea>
+			<div class="feedback-form__cut cut-message-width"></div>
+			<label for="email-popup__message" class="feedback-form__placeholder">Сообщение</label>
+		</div>
+
+		<div class="feedback-form__flex-container">
+			<input type="checkbox" checked id="email-popup__checkbox" class="feedback-form__checkbox">
+			<p id="email-popup__checkbox-title" class="feedback-form__checkbox-title">Даю согласие на обработку
+				персональных данных в соответствии <a href="policy.html" target="_blank">политикой
+					конфиденциальности</a></p>
+		</div>
+
+		<div class="button-style-3 button-style-3-light popup__send" id="email-popup__send">
+			<h4>Отправить</h4>
+		</div>
+
+		<div class="button-style-3 popup__cancel" id="email-popup__cancel">
+			<h4>Отменить</h4>
+		</div>
+	</form>
+
+</div><div class="call-popup popup">
+
+	<form class="feedback-form width-limiter">
+		<h2>Заказать обратный звонок</h2>
+		<p class="feedback-form__info" id="call-popup__info">Статус формы</p>
+
+		<div class="feedback-form__flex-container-space-between">
+			<div class="feedback-form__input-container input-container-half-width">
+				<input id="call-popup__client-name" class="feedback-form__input" type="text" placeholder=" " />
+				<div class="feedback-form__cut cut-name-width"></div>
+				<label for="call-popup__client-name" class="feedback-form__placeholder">Ваше имя</label>
+			</div>
+
+			<div class="feedback-form__input-container input-container-half-width">
+				<input id="call-popup__client-phone" class="feedback-form__input" type="text" placeholder=" " />
+				<div class="feedback-form__cut cut-call-width"></div>
+				<label for="call-popup__client-phone" class="feedback-form__placeholder">Номер</label>
+			</div>
+		</div>
+
+		<div class="feedback-form__flex-container">
+			<input type="checkbox" checked id="call-popup__checkbox" class="feedback-form__checkbox">
+			<p id="call-popup__checkbox-title" class="feedback-form__checkbox-title">Даю согласие на обработку
+				персональных данных в соответствии <a href="policy.html" target="_blank">политикой
+					конфиденциальности</a></p>
+		</div>
+
+		<div class="button-style-3 button-style-3-light popup__send" id="call-popup__send">
+			<h4>Отправить</h4>
+		</div>
+		<div class="button-style-3 popup__cancel" id="call-popup__cancel">
+			<h4>Отменить</h4>
+		</div>
+	</form>
+
+</div><div class="menu-mobile-bg"></div>
+<nav class="menu">
+	<a href="index.html">
+		<div class="menu__logo"></div>
+	</a>
+
+
+	<div class="menu__container-btn">
+		<div class="menu__container-btn-right-part">
+
+			<div class="menu__home-btn">
+				<a href="index.html">
+					<div class="menu__home-icon elem-1"></div>
+				</a>
+			</div>
+
+			<ul class="menu__list">
+				<li id="menu__products">
+					<a href="products.html" class="menu__link __products-btn">Продукты</a>
+					<span class="menu__arrow arrow"></span>
+					<ul class="sub-menu__list">
+						<li>
+							<a href="technologics.html" class="sub-menu__link __products-01-btn">TechnologiCS</a>
+						</li>
+						<li>
+							<a href="nsproject.html" class="sub-menu__link __products-02-btn">NS Project</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="services.html" class="menu__link __servicess-btn">Услуги</a>
+				</li>
+				<li>
+					<a href="contacts.html" class="menu__link __contacts-btn">Контакты</a>
+				</li>
+				<li>
+					<a href="http://support.csoft.ru" target="_blank" class="menu__link">Форум</a>
+				</li>
+			</ul>
+		</div>
+		<div class="menu__menu-btn">
+			<div class="menu__menu-btn-icon"></div>
+			<div class="menu__icon-close-line close-line-1"></div>
+			<div class="menu__icon-close-line close-line-2"></div>
+		</div>
+		<div class="menu__mail-btn">
+			<div class="menu__mail-oval elem-2"></div>
+			<div class="menu__mail-icon elem-1"></div>
+		</div>
+	</div>
+</nav>
+	<div class="full-screen">
+		<div class="full-screen__body width-limiter">
+
+			<div class="two-block-content">
+				<h1>
+					<span></span>
+					Аккордеон
+				</h1>
+				<p>
+					Графический элемент аккордеон представляет собой вертикально сложенный список элементов, таких как текстовые метки или эскизы. Каждый элемент может быть «развёрнут» или «раскрыт», чтобы показать содержание, связанное с этим элементом.
+				</p>
+
+				<a href="index.html">
+					<div class="button-style-2">
+						<span></span>
+						<p>На главную</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="two-block-content">
+				<div class="full-screen__block-infographics">
+<div class="infographic-item">
+	<div class="infographic-item__icon pdm-icon"></div>
+	<h1 class="infographic-item__title">PDM</h1>
+	<p class="infographic-item__info">Искусственный <br>интеллект</p>
+</div>
+<div class="infographic-item">
+	<div class="infographic-item__icon mes-icon"></div>
+	<h1 class="infographic-item__title">MES</h1>
+	<p class="infographic-item__info">Умное хранение <br>ваших данных</p>
+</div>
+<div class="infographic-item">
+	<div class="infographic-item__icon iot-icon"></div>
+	<h1 class="infographic-item__title">IoT</h1>
+	<p class="infographic-item__info">Аналитика поведения <br>клиентов</p>
+</div>
+<div class="infographic-item">
+	<div class="infographic-item__icon eam-icon"></div>
+	<h1 class="infographic-item__title">EAM</h1>
+	<p class="infographic-item__info">Роботизация систем <br>и чат-боты</p>
+</div>				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="full-screen__bg-container">
+		<video pip="false" muted loop poster="graphics/poster.jpg" class="full-screen__bg" id="full-screen__video">
+			<source type="video/webm" src="graphics/video-fs.webm">
+			<source type="video/mp4" src="graphics/video-fs.mp4">
+		</video>
+		<div class="tint"></div>
+	</div>
+
+
+	<div class="wrapper-main-content">
+
+		<div class="content">
+			<div class="content__container  width-limiter">
+
+				<div class="two-block-content">
+					<h1>
+						<span></span>
+						Обучение сотрудников
+					</h1>
+					<p>
+						Мы готовы проверить знания у Ваших специалистов и составить
+						программу обучения, которое проводится на базе авторизованного
+						учебного центра Steepler или на территории предприятия заказчика в группе до 12
+						человек.
+					</p>
+				</div>
+
+				<div class="two-block-content">
+					<h1>
+						<span></span>
+						Консалтинговые услуги
+					</h1>
+					<p>
+						CSoft выполнит работы по индивидуальной настройке программного обеспечения, созданию баз данных,
+						макросов,
+						специальных приложений, разработке электронного архива и документооборота, стандартов
+						предприятия.
+					</p>
+				</div>
+
+				<div class="two-block-content">
+					<div class="accordeon">
+						<h4>
+							Аудит технологий и бизнес-процессов
+						</h4>
+						<div class="icon-polygon"></div>
+					</div>
+					<div class="accordeon-panel">
+						<ol>
+							<li>
+								Обследование процессов основной деятельности и разработка концепции системы цифрового
+								моделирования
+								сооружений
+							</li>
+							<li>
+								Обследование существующих процессов производственного блока и используемых информационных
+								систем
+							</li>
+							<li>
+								Фиксация функциональной декомпозиции существующих информационных систем
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="two-block-content">
+					<div class="accordeon marg-t-1">
+						<h4>
+							Разработка концепции развития и создания ИТ-Решения на предприятии
+						</h4>
+						<div class="icon-polygon"></div>
+					</div>
+					<div class="accordeon-panel">
+						<ol>
+							<li>
+								Разработка функциональных требований к системе цифрового управления полным жизненным циклом
+								изделий
+							</li>
+							<li>
+								Разработка целевой принципиальной архитектуры программных средств и функциональной
+								декомпозиции
+								системы управления
+								полным жизненным циклом изделий
+							</li>
+							<li>
+								Формирование основных принципов выполнения работ по подготовке и производству в системе
+								цифрового
+								управления полным
+								жизненным циклом изделий
+							</li>
+							<li>
+								Формирование спецификации программных продуктов для построения системы цифрового управления
+								полным
+								жизненным циклом
+								изделий
+							</li>
+							<li>
+								Разработка плана внедрения
+							</li>
+							<li>
+								Разработка бюджетной оценки проекта внедрения системы цифрового управления полным жизненным
+								циклом
+								изделий
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="one-block-content">
+					<h1>
+						<span></span>
+						Lorem ipsum dolor sit amet
+					</h1>
+					<p>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati ipsa repellat, quo consequatur, possimus quidem nostrum magni error dolorum pariatur harum. Vel maiores similique eligendi nam odio deserunt debitis deleniti consectetur repudiandae quam nesciunt iure tempora ducimus omnis recusandae harum ex, a quis laboriosam quibusdam sint illo. Eum iste quod quam placeat accusamus commodi maxime voluptatum quis, praesentium sunt suscipit. Earum deserunt ab rem vel laudantium quis maiores ullam, iste obcaecati assumenda vitae et optio ea dolorem magnam ipsa consequatur.
+					</p>
+				</div>
+
+				<div class="one-block-content">
+					<div class="accordeon marg-t-1">
+						<h4>
+							Разработка концепции развития и создания ИТ-Решения на предприятии
+						</h4>
+						<div class="icon-polygon"></div>
+					</div>
+					<div class="accordeon-panel">
+						<ol>
+							<li>
+								Разработка функциональных требований к системе цифрового управления полным жизненным циклом
+								изделий
+							</li>
+							<li>
+								Разработка целевой принципиальной архитектуры программных средств и функциональной
+								декомпозиции
+								системы управления
+								полным жизненным циклом изделий
+							</li>
+							<li>
+								Формирование основных принципов выполнения работ по подготовке и производству в системе
+								цифрового
+								управления полным
+								жизненным циклом изделий
+							</li>
+							<li>
+								Формирование спецификации программных продуктов для построения системы цифрового управления
+								полным
+								жизненным циклом
+								изделий
+							</li>
+							<li>
+								Разработка плана внедрения
+							</li>
+							<li>
+								Разработка бюджетной оценки проекта внедрения системы цифрового управления полным жизненным
+								циклом
+								изделий
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="one-block-content">
+					<div class="accordeon">
+						<h4>
+							Аудит технологий и бизнес-процессов
+						</h4>
+						<div class="icon-polygon"></div>
+					</div>
+					<div class="accordeon-panel">
+						<ol>
+							<li>
+								Обследование процессов основной деятельности и разработка концепции системы цифрового
+								моделирования
+								сооружений
+							</li>
+							<li>
+								Обследование существующих процессов производственного блока и используемых информационных
+								систем
+							</li>
+							<li>
+								Фиксация функциональной декомпозиции существующих информационных систем
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<div class="one-block-content">
+					<h1>
+						<span></span>
+						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, laborum
+					</h1>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, accusantium neque, ipsa beatae incidunt repellat inventore corporis est, dolores laboriosam repellendus repudiandae. Quaerat quas incidunt facilis. Vitae fugiat impedit explicabo.
+					</p>
+				</div>
+
+		
+			</div>
+
+
+			<div class="content__cg-progress"></div>
+		</div>
+
+	</div>
+
+<div class="footer-big-block">
+
+	<div class="footer-big-block__body  width-limiter">
+
+		<form class="feedback-form" id="email-form-footer">
+			<h2>Нужно больше деталей?</h2>
+			<p class="feedback-form__info" id="email-footer__info">Статус формы</p>
+
+			<div class="feedback-form__flex-container-space-between">
+				<div class="feedback-form__input-container input-container-half-width">
+					<input id="email-footer__client-name" class="feedback-form__input" type="text" placeholder=" " />
+					<div class="feedback-form__cut cut-name-width"></div>
+					<label for="email-footer__client-name" class="feedback-form__placeholder">Ваше имя</label>
+				</div>
+
+				<div class="feedback-form__input-container input-container-half-width">
+					<input id="email-footer__client-email-address" class="feedback-form__input" type="text"
+						placeholder=" " />
+					<div class="feedback-form__cut cut-email-width"></div>
+					<label for="email-footer__client-email-address" class="feedback-form__placeholder">Email</label>
+				</div>
+			</div>
+
+			<div class="feedback-form__input-container">
+				<textarea id="email-footer__message" class="feedback-form__input feedback-form__input-message"
+					cols="100500" placeholder=" "></textarea>
+				<div class="feedback-form__cut cut-message-width"></div>
+				<label for="email-footer__message" class="feedback-form__placeholder">Сообщение</label>
+			</div>
+
+			<div class="feedback-form__flex-container">
+				<input type="checkbox" checked id="email-footer__checkbox" class="feedback-form__checkbox">
+				<p id="email-footer__checkbox-title" class="feedback-form__checkbox-title">Даю согласие на обработку
+					персональных данных в соответствии <a href="policy.html" target="_blank">политикой
+						конфиденциальности</a></p>
+			</div>
+
+
+			<div class="button-style-3 button-style-3-light" id="email-footer__send">
+				<h4>Отправить</h4>
+			</div>
+		</form>
+
+
+		<div class="footer-big-block__joystick">
+			<a title="Наверх">
+				<div class="footer-big-block__up footer-big-block__joystick-icon-size">
+					<div class="footer-big-block__icon-up footer-big-block__joystick-icon-size elem-1"></div>
+				</div>
+			</a>
+
+			<a title="Поиск" href="search.html">
+				<div class="footer-big-block__search footer-big-block__joystick-icon-size">
+					<div class="footer-big-block__icon-search footer-big-block__joystick-icon-size elem-1"></div>
+				</div>
+			</a>
+
+			<a title="Обратная связь">
+				<div class="footer-big-block__staf footer-big-block__joystick-icon-size">
+					<div class="footer-big-block__icon-staf footer-big-block__joystick-icon-size elem-1"></div>
+				</div>
+			</a>
+
+			<a title="YouTube" href="https://www.youtube.com" target="_blank">
+				<div class="footer-big-block__youtube footer-big-block__joystick-icon-size">
+					<div class="footer-big-block__icon-youtube footer-big-block__joystick-icon-size elem-1"></div>
+				</div>
+			</a>
+		</div>
+
+
+		<a href="technologics.html">
+			<div class="footer-big-block__back">
+				<div class="icon events-none"></div>
+				<h2 class="events-none"><span></span> Назад</h2>
+				<h3 class="events-none">“Technologics”</h3>
+			</div>
+		</a>
+
+		<a href="nsproject.html">
+			<div class="footer-big-block__next">
+				<div class="icon events-none"></div>
+				<h2 class="events-none"><span></span> Далеe</h2>
+				<h3 class="events-none">“NS Project”</h3>
+			</div>
+		</a>
+
+	</div>
+
+</div>
+<footer class="footer-line">
+	<div class="footer-line__container">
+		<div class="footer-line__left-part">
+			<div class="footer-line__icon-lang-ru"></div>
+			<h4 class="footer-line__copyright">© CSoft 2021 Все права защищены</h4>
+		</div>
+		<div class="footer-line__right-part">
+			<a href="agreement.html" target="_blank" title="Пользовательское Соглашение">
+				<div class="footer-line__icon-info"></div>
+			</a>
+			<a href="policy.html" target="_blank" title="Политика конфиденциальности">
+				<div class="footer-line__icon-policy"></div>
+			</a>
+		</div>
+	</div>
+</footer>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -249,10 +249,24 @@ function btnAction1(theObject) {
 }
 
 
+//? ---------------------------------------------------- Аккордеон
+	let accordeon = document.getElementsByClassName("accordeon")
+	for (let i = 0; i < accordeon.length; i++) {
+		accordeon[i].addEventListener("click", function () {
+			this.classList.toggle("accordeon-active")
+			let panel = this.nextElementSibling
+			if (panel.style.display === "block") {
+				panel.style.display = "none"
+			} else {
+				panel.style.display = "block"
+			}
+		})
+	}
 
 
 
-//  ---------------------------------------------------- логика раскрывающихся списков в контенте
+
+//  ---------------------------------------------------- логика плавно раскрывающихся списков в контенте по кнопке ЕЩЕ
 function checkExpandLists() {
 	let currentHeight
 	let numPaddingMouseOver = 8

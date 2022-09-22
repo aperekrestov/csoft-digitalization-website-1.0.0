@@ -353,9 +353,94 @@ a:hover {
 .eam-icon {
 	background-image: url(../graphics/icon-eam.svg);
 }
+.icon-polygon {
+	width: 10px;
+	height: 10px;
+	transition: all 0.3s ease;
+	&:before {
+		content: "";
+		transition: all 0.3s ease;
+		position: absolute;
+		width: inherit;
+		height: inherit;
+		background-image: url(../graphics/icon-polygon-color.svg);
+	}
+	&:after {
+		content: "";
+		transition: all 0.3s ease;
+		position: absolute;
+		width: inherit;
+		height: inherit;
+		background-image: url(../graphics/icon-polygon.svg);
+		opacity: 0;
+	}
+}
 
-// ? ----------------------------------------------------------------кнопки
+// ? ---------------------------------------------------------------- Аккордеон
+.accordeon {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $color_1;
+	cursor: pointer;
+	padding: 1rem 1rem;
+	width: 100%;
+	transition: 0.3s;
+	.icon-polygon {
+		margin-left: 1rem;
+	}
+	h4{
+		color: $color_4;
+	}
+	&:hover {
+		h4{
+			color: $color_3;
+		}
+		.icon-polygon {
+			&:before {
+				opacity: 0;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+.accordeon-active {
+	.icon-polygon {
+		transform: rotate(60deg);
+		&:before {
+			opacity: 1;
+		}
+		&:after {
+			opacity: 0;
+		}
+	}
+}
+.accordeon.accordeon-active {
+	h4{
+		color: $color_5;
+	}
+	&:hover {
+		.icon-polygon {
+			&:before {
+				opacity: 0;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+}
+.accordeon-panel {
+	background-color: $color_5;
+	padding: 1rem 1rem;
+	overflow: hidden;
+	display: none;
+}
 
+
+// ? ---------------------------------------------------------------- Кнопки
 .button-style-1 {
 	:hover {
 		text-decoration: none;

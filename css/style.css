@@ -387,7 +387,7 @@ a:hover {
   position: relative;
   width: 680px;
   height: 1060px;
-  margin-top: calc(-1060px + 360px);
+  margin-top: -700px;
   opacity: 0;
 }
 .content__banner-pic {
@@ -485,6 +485,93 @@ a:hover {
 
 .eam-icon {
   background-image: url(../graphics/icon-eam.svg);
+}
+
+.icon-polygon {
+  width: 10px;
+  height: 10px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.icon-polygon:before {
+  content: "";
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-image: url(../graphics/icon-polygon-color.svg);
+}
+.icon-polygon:after {
+  content: "";
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-image: url(../graphics/icon-polygon.svg);
+  opacity: 0;
+}
+
+.accordeon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #0c121c;
+  cursor: pointer;
+  padding: 1rem 1rem;
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.accordeon .icon-polygon {
+  margin-left: 1rem;
+}
+.accordeon h4 {
+  color: #c7ddeb;
+}
+.accordeon:hover h4 {
+  color: #f5fafc;
+}
+.accordeon:hover .icon-polygon:before {
+  opacity: 0;
+}
+.accordeon:hover .icon-polygon:after {
+  opacity: 1;
+}
+
+.accordeon-active .icon-polygon {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+.accordeon-active .icon-polygon:before {
+  opacity: 1;
+}
+.accordeon-active .icon-polygon:after {
+  opacity: 0;
+}
+
+.accordeon.accordeon-active h4 {
+  color: #ffffff;
+}
+.accordeon.accordeon-active:hover .icon-polygon:before {
+  opacity: 0;
+}
+.accordeon.accordeon-active:hover .icon-polygon:after {
+  opacity: 1;
+}
+
+.accordeon-panel {
+  background-color: #ffffff;
+  padding: 1rem 1rem;
+  overflow: hidden;
+  display: none;
 }
 
 .button-style-1 {
@@ -945,8 +1032,8 @@ a:hover {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: calc(50% - 40px / 2);
-  left: calc(50% - 40px / 2);
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
   background-image: url(../graphics/icon_home.svg);
   background-size: contain;
 }
@@ -960,8 +1047,8 @@ a:hover {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: calc(50% - 40px / 2);
-  left: calc(50% - 40px / 2);
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
   background-image: url(../graphics/icon_mail.svg);
   pointer-events: none;
   background-size: contain;
@@ -970,8 +1057,8 @@ a:hover {
   position: absolute;
   width: 60px;
   height: 60px;
-  top: calc(50% - 60px / 2);
-  left: calc(50% - 60px / 2);
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
   border: 1px solid #f5fafc;
   opacity: 0.5;
   border-radius: 50%;
